@@ -1,0 +1,115 @@
+body {
+    border: 1rem solid black;
+    background-color: black;
+}
+.overlay {
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.overlay-main {
+    z-index: 4;
+}
+
+.overlay-countdown h2 {
+    font-size: 20rem;
+    margin-top: 6rem;
+}
+
+.overlay-3{
+    z-index: 3;
+}
+
+.overlay-2{
+    z-index: 2;
+}
+
+.overlay-1{
+    z-index: 1;
+}
+
+.overlay button {
+    padding: 1rem;
+    border-radius: 0.8rem;
+    border: 0.4rem solid black;
+    box-shadow: none;
+    font-weight: 800;
+}
+
+.overlay button:hover {
+    background-color: bisque;
+    font-size: 2rem;
+}
+
+ul {
+    list-style-type: none
+}
+
+.game-screen {
+    position: relative;
+}
+
+.navbar {
+    background-color: black;
+    position: absolute;
+    left: -1rem;
+    width: 100vw;
+    height: 8rem;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.navbar button {
+    border: 0.3rem solid rgb(148, 143, 143);
+    border-radius: 0.8rem;
+    background: black;
+    color: rgb(158, 153, 153);
+    width: 10rem;
+    height: 4rem;
+    padding: 1rem;
+    font-weight: 800;
+}
+
+.game-board {
+    position: absolute;
+    top: 8rem;
+    left: 2rem;
+    display: grid;
+    grid-template-columns : repeat(19, 6rem);
+    grid-template-rows: repeat(8, 6rem);
+}
+
+.tile {
+    background-color: aquamarine;
+}
+
+.empty-space {
+    background-color: rgb(0, 0, 0);
+}
+
+.game-board [data-type="circle"] {
+    background-color: rgb(29, 29, 117);
+    border: 0.1rem solid black;
+
+  }
+
+.game-board [data-type="triangle"] {
+    background-color: rgb(61, 102, 61);
+    border: 0.1rem solid black;
+
+  }
+
+.game-board [data-type="square"] {
+    background-color: rgb(110, 110, 88);
+    border: 0.1rem solid black;
+
+  }

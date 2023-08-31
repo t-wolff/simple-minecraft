@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/media.css">
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Minecraft</title>
+</head>
+
+<body>
+    <section class="overlay overlay-main hidden">
+        <h1>COLORCRAFT</h1>
+        <ul class="instructions">
+            <li>Catch the blocks before they fade</li>
+            <li>Make sure you have the correct tool</li>
+            <li>Watch out as the game speeds up</li>
+        </ul>
+        <button class="btn start-game-btn">START GAME</button>
+    </section>
+    <section class="overlay overlay-countdown overlay-3 hidden">
+        <h2>3</h2>
+    </section>
+    <section class="overlay overlay-countdown overlay-2 hidden">
+        <h2>2</h2>
+    </section>
+    <section class="overlay overlay-countdown overlay-1 hidden">
+        <h2>1</h2>
+    </section>
+
+    <section class="game-screen">
+        <div class="navbar">
+                <button class="inventory-btn">INVENTORY</button>
+                <button class="circle-btn tool" data-type="circle">CIRCLE</button>
+                <button class="square-btn tool" data-type="square">SQUARE</button>
+                <button class="triangle-btn tool" data-type="triangle">TRIANGLE</button>
+                <button class="reset-btn">RESET</button>
+        </div>
+        <div class="game-board">
+
+        </div>
+    </section>
+
+    <script type="module" src="./src/main.js" defer></script>
+</body>
+
+</html>

@@ -2,14 +2,14 @@ class Tile {
 
 }
 
-class rock extends Tile {
+class triangle extends Tile {
 
 }
 
-class dirt extends Tile {
+class circle extends Tile {
 
 }
 
-class tree extends Tile {
+class square extends Tile {
 
 }

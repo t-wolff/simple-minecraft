@@ -1,3 +1,4 @@
+const tools = document.querySelectorAll(tool);
 class Tool {
     constructor() {
 
@@ -5,14 +6,15 @@ class Tool {
 
 }
 
-class Axe extends Tool {
+class Circle extends Tool {
     
 }
 
-class Pickaxe extends Tool {
+class Square extends Tool {
 
 }
 
-class Shovel extends Tool {
+class Triangle extends Tool {
 
 }
+

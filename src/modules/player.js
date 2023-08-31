@@ -1,17 +1,20 @@
-class World {
+export class Player {
     constructor() {
-
+        this.currentTool = null;
+        this.inventory =  {circle : 0,
+                        square : 0,
+                        triangle : 0,}
     }
 
-    addItem() {
-
+    addItem(item) {
+        this.inventory[item]++
     }
 
-    removeItem() {
-
+    removeItem(item) {
+        this.inventory[item]--
     }
 
-    selectTool() {
-        
+    selectTool(tool) {
+        this.currentTool = tool;
     }
 }
