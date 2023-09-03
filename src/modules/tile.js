@@ -2,7 +2,7 @@ class Tile {
 
 }
 
-class triangle extends Tile {
+class Star extends Tile {
 
 }
 

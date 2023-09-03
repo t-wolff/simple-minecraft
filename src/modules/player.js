@@ -3,12 +3,12 @@ export class Player {
         this.currentTool = null;
         this.inventory =  {circle : 0,
                         square : 0,
-                        triangle : 0,}
+                        star : 0,}
+        this.score = 0;
     }
 
     addItem(item) {
         this.inventory[item]++
-        console.log(this.inventory);
     }
 
     removeItem(item) {
@@ -17,5 +17,9 @@ export class Player {
 
     selectTool(tool) {
         this.currentTool = tool;
+    }
+
+    getScore() {
+        return Object.values(this.inventory).reduce((total, curr) => total + curr, 0);
     }
 }

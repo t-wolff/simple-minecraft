@@ -1,6 +1,5 @@
 import { World } from "./world.js";
 import { Player } from "./player.js";
-
 let gameOver = false;
 
 export class Game {
@@ -16,30 +15,24 @@ export class Game {
 
         this.tools.forEach(item => {
             item.addEventListener("click", (event) => {
-                this.player.selectTool(event.target.dataset.type)
+                this.tools.forEach(button => {
+                    button.setAttribute("id","");
+                });
+                event.target.setAttribute("id","navbar-btn-chosen");
+                this.player.selectTool(event.target.dataset.type);
             })
         })
-
-        // this.world.gameBoard.addEventListener("click", (event) => {
-        //     const condition = this.gameStage === 1 ? 
-        //     this.player.currentTool === event.target.dataset.type && event.target.classList.contains("fade-tile") :
-        //     this.player.currentTool === event.target.dataset.type
-        //     console.log(event.target.classlist.contains("fade-tile"));
-        //     if (condition) {
-        //         this.world.removeTile(event.target);
-        //         this.player.addItem(event.target.dataset.type);
-        //     }
-        // });
 
         this.world.gameBoard.addEventListener("click", (event) => {
             if (event.target) {
                 const condition = this.gameStage === 1 ?
                     this.player.currentTool === event.target.dataset.type && event.target.classList.contains("fade-tile") :
                     this.player.currentTool === event.target.dataset.type;
-        
+
                 if (condition) {
                     this.world.removeTile(event.target);
                     this.player.addItem(event.target.dataset.type);
+                    document.querySelector('.inventory-btn span').textContent = this.player.getScore();
                 }
             }
         });
@@ -66,12 +59,12 @@ export class Game {
         //  const tiles = this.world.gameBoard.querySelectorAll('.tile');
         // tiles.forEach(tile => this.world.gameBoard.remove(tile));
 
-        for (const key in this.player.inventory) {
-                this.player.inventory[key] = 0;
-        }
-        const game = new Game();
-        game.startGame();
-        game.updateGame();
+        // for (const key in this.player.inventory) {
+        //         this.player.inventory[key] = 0;
+        // }
+        // const game = new Game();
+        // game.startGame();
+        // game.updateGame();
           
    }
 

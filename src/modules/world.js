@@ -1,4 +1,5 @@
 import { getRandomNum } from '../utils/utils.js';
+import {pastelColors} from "../models/constants.js";
 
 export class World {
 	constructor() {
@@ -6,8 +7,8 @@ export class World {
 	}
 
 	generateWorld() {
-		for (let xAxis = 0; xAxis <= 18; xAxis += 1) {
-			for (let yAxis = 0; yAxis <= 7; yAxis += 1) {
+		for (let xAxis = 0; xAxis <= 16; xAxis += 1) {
+			for (let yAxis = 0; yAxis <= 6; yAxis += 1) {
 				const type = generateType(yAxis);
 				this.addTile(type, xAxis, yAxis);
 			}
@@ -20,6 +21,7 @@ export class World {
 		tile.setAttribute('data-type', type);
 		tile.style.gridRowStart = y + 1;
 		tile.style.gridColumnStart = x + 1;
+		tile.style.backgroundColor = pastelColors[getRandomNum(pastelColors.length)-1]
 		this.gameBoard.appendChild(tile);
 	}
 
@@ -43,7 +45,7 @@ export class World {
 		if (tilesArr.length > 0) {
 			const randomTile = tilesArr[getRandomNum(tilesArr.length)-1];
 			randomTile.classList.add('fade-tile');
-            console.log(randomTile);
+			randomTile.style.color = 'grey';
 			return randomTile;
 		} else {
 			return false;
@@ -57,11 +59,11 @@ export class World {
 }
 
 function generateType(y) {
-	if (y < 3) {
+	if (y < 2) {
 		return 'square';
 	} else if (y < 5) {
-		return 'circle';
+		return 'star';
 	} else {
-		return 'triangle';
+		return 'circle';
 	}
 }

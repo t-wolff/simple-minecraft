@@ -14,7 +14,7 @@ class Square extends Tool {
 
 }
 
-class Triangle extends Tool {
+class S extends Tool {
 
 }
 

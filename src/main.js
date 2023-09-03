@@ -1,9 +1,7 @@
 import { Game } from "./modules/game.js";
-
 const startBtn = document.querySelector('.start-game-btn');
 const overlay = document.querySelectorAll('.overlay');
-const gameSpeed = 100;
-const gameTiles = 152;
+
 
   startBtn.addEventListener("click", () => {
     overlay.forEach((item, i) => {

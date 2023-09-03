@@ -2,6 +2,7 @@ body {
     border: 1rem solid black;
     background-color: black;
 }
+
 .overlay {
     height: 100vh;
     width: 100vw;
@@ -17,6 +18,15 @@ body {
 
 .overlay-main {
     z-index: 4;
+}
+
+.overlay-main h1{
+    font-size: 8rem;
+}
+
+.overlay-main li{
+    font-size: 1.8rem;
+    margin: 0.5rem;
 }
 
 .overlay-countdown h2 {
@@ -37,16 +47,23 @@ body {
 }
 
 .overlay button {
-    padding: 1rem;
+    padding: 2rem;
+    width: 20rem;
     border-radius: 0.8rem;
     border: 0.4rem solid black;
     box-shadow: none;
+    font-size: 2rem;
     font-weight: 800;
+    margin: 5rem;
 }
 
 .overlay button:hover {
-    background-color: bisque;
+    background-color: black;
+    color: white;
+    border: 0.4rem solid white;
     font-size: 2rem;
+    font-size: 3rem;
+    width: 28rem;
 }
 
 ul {
@@ -69,36 +86,51 @@ ul {
 }
 
 .navbar button {
-    border: 0.3rem solid rgb(148, 143, 143);
+    border: 0.3rem solid rgb(204, 204, 204);
     border-radius: 0.8rem;
     background: black;
-    color: rgb(158, 153, 153);
+    color: rgb(255, 255, 255);
     width: 10rem;
     height: 4rem;
     padding: 1rem;
     font-weight: 800;
 }
 
-.triangle-btn {
-    background-color: white;
-    background-image: url('../assets/imgs/circle.svg');
+.navbar .tool {
+    width: 12rem;
+    height: 6rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    font-size: 1.4rem;
 }
 
-.square-btn {
-    background-image: url('../assets/imgs/circle.svg');
+.navbar .tool:hover {
+    margin-top: -1rem;
+    width: 16rem;
+    height: 8rem;
+    margin-left: -2.6rem;
+    margin-right: -3.4rem;
 }
 
-.circle-btn {
-    background-image: url('../assets/imgs/circle.svg');
+#navbar-btn-chosen {
+    background-color:rgb(204, 204, 204);
+    color: black;
+    
 }
 
 .game-board {
     position: absolute;
-    top: 8rem;
-    left: 2rem;
+    top: 10rem;
+    left: 6rem;
+    height: 42rem;
+    width: 103rem;
     display: grid;
-    grid-template-columns : repeat(19, 6rem);
-    grid-template-rows: repeat(8, 6rem);
+    grid-template-columns : repeat(17, 6rem);
+    grid-template-rows: repeat(7, 6rem);
+    border: 0.3rem solid rgb(204, 204, 204);
+    border-radius: 0.4rem;
+    padding: 1rem;
+    padding-left: 1.6rem;
 }
 
 .tile {
@@ -121,8 +153,8 @@ ul {
     background-image: url('../assets/imgs/circle.svg');
   }
 
-.game-board [data-type="triangle"] {
-    background-image: url('../assets/imgs/triangle.svg');
+.game-board [data-type="star"] {
+    background-image: url('../assets/imgs/star.svg');
   }
 
 .game-board [data-type="square"] {
@@ -132,3 +164,4 @@ ul {
 .fade-tile {
     filter: grayscale(1);
 }
+
