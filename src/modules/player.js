@@ -8,6 +8,7 @@ export class Player {
 
     addItem(item) {
         this.inventory[item]++
+        console.log(this.inventory);
     }
 
     removeItem(item) {

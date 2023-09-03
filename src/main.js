@@ -2,14 +2,22 @@ import { Game } from "./modules/game.js";
 
 const startBtn = document.querySelector('.start-game-btn');
 const overlay = document.querySelectorAll('.overlay');
+const gameSpeed = 100;
+const gameTiles = 152;
 
-
-startBtn.addEventListener("click", () => {overlay.forEach((item, i) => {
-    setTimeout(() => {
+  startBtn.addEventListener("click", () => {
+    overlay.forEach((item, i) => {
+      setTimeout(() => {
         item.classList.add('hidden')
-      }, i * 1000);
-})});
+      }, i * 1000);})
+      
+      setTimeout(newGame, 3000);
+  });
 
 
-const game = new Game();
-game.startGame();
+  async function newGame() {
+    const game = new Game();
+    game.startGame();
+    game.updateGame();
+  
+  }
