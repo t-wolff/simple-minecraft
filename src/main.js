@@ -15,7 +15,7 @@ const overlay = document.querySelectorAll('.overlay');
 
   async function newGame() {
     const game = new Game();
-    game.startGame();
-    game.updateGame();
-  
+    game.startLevel1();
+    await game.updateGame();
+    game.startLevel2();
   }

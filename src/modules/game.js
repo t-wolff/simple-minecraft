@@ -1,6 +1,5 @@
 import { World } from "./world.js";
 import { Player } from "./player.js";
-let gameOver = false;
 
 export class Game {
     constructor () {
@@ -10,8 +9,8 @@ export class Game {
         this.gameStage = 1;
     }
     
-    startGame() {
-        this.world.generateWorld();
+    startLevel1() {
+        if (this.gameStage === 1) {this.world.generateWorld()}
 
         this.tools.forEach(item => {
             item.addEventListener("click", (event) => {
@@ -32,28 +31,52 @@ export class Game {
                 if (condition) {
                     this.world.removeTile(event.target);
                     this.player.addItem(event.target.dataset.type);
-                    document.querySelector('.inventory-btn span').textContent = this.player.getScore();
+                    document.querySelector('.inventory-btn span').textContent = `SCORE ${this.player.getScore()}`;
                 }
             }
         });
         
 
         const reset = document.querySelector('.reset-btn');
-        reset.addEventListener("click", () => this.resetGame());
+        reset.addEventListener("click", () => this.resetGame())
+    }
+    
+    startLevel2() {
+        this.player.showScore();
+        this.player.buildInventory(this.world.gameBoard);
+
+        this.world.gameBoard.addEventListener("click", (event) => {
+            if (event.target && event.target.dataset.type) {
+                if (this.player.currentTool === event.target.dataset.type) {
+                    this.world.removeTile(event.target);
+                    this.player.addItem(event.target.dataset.type);
+                }
+            } else if (event.target) {
+                this.world.gameBoard.classList.remove(`cursor-${this.player.typeChosen}`)               
+                this.world.addTile('square', event.target.style.gridColumnStart, event.target.style.gridRowStart, event.target);
+            }
+        });
 
     }
 
-    updateGame() {
-        if (this.gameStage === 1) {
+    async updateGame() {
+        while (this.gameStage === 1) {
             const fadedTile = this.world.fadeTile();
-            setTimeout(() => this.world.removeFadedTile(fadedTile), 2000)
-            if (!fadedTile) {this.gameStage = 2}
-        
-            setTimeout(() => {
-                this.updateGame();
-            }, 2000);
+            if (!fadedTile) {
+                this.gameStage = 2;
+            } else {
+                await new Promise((resolve) => {
+                    setTimeout(() => {
+                        this.world.removeFadedTile(fadedTile);
+                        resolve();
+                    }, 2000);
+                });
+            }
         }
     }
+    
+
+    
 
     resetGame() {
         //  const tiles = this.world.gameBoard.querySelectorAll('.tile');
@@ -69,3 +92,6 @@ export class Game {
    }
 
 }
+
+
+

@@ -46,6 +46,11 @@ body {
     z-index: 1;
 }
 
+.overlay-score {
+    z-index: 5;
+
+}
+
 .overlay button {
     padding: 2rem;
     width: 20rem;
@@ -133,9 +138,8 @@ ul {
     padding-left: 1.6rem;
 }
 
-.tile {
-    background-color: aquamarine;
-}
+/* .tile {
+} */
 
 .empty-space {
     background-color: rgb(0, 0, 0);
@@ -149,15 +153,15 @@ ul {
     background-repeat: no-repeat;
 }
 
-.game-board [data-type="circle"] {
+[data-type="circle"] {
     background-image: url('../assets/imgs/circle.svg');
   }
 
-.game-board [data-type="star"] {
+[data-type="star"] {
     background-image: url('../assets/imgs/star.svg');
   }
 
-.game-board [data-type="square"] {
+[data-type="square"] {
     background-image: url('../assets/imgs/square.svg');
   }
 
@@ -165,3 +169,42 @@ ul {
     filter: grayscale(1);
 }
 
+.inventory {
+    position: absolute;
+    top: 2.2rem;
+    left: -0.6rem;
+    width: 6rem;
+    height: 52rem;
+    border-radius: 0.4rem;
+    background-color:rgb(204, 204, 204);
+}
+
+.inventory h3 {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 900;
+}
+
+.inventory-tile {
+    height: 6rem;
+    width: 6rem;
+    margin-bottom: 0.5rem;
+    background-size: 60%;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    border: 0.1rem solid black;
+    background-repeat: no-repeat;
+}
+
+.cursor-circle {
+    cursor: url('../assets/imgs/white-circle.svg'), pointer;
+  }
+
+.cursor-square {
+    cursor: url('../assets/imgs/white-square.svg'), pointer;
+}
+
+.cursor-star {
+    cursor: url('../assets/imgs/white-star.svg'), pointer;
+}

@@ -15,14 +15,20 @@ export class World {
 		}
 	}
 
-	addTile(type, x, y) {
+	addTile(type, x, y, emptySpace) {
 		const tile = document.createElement('div');
 		tile.className = `tile`;
 		tile.setAttribute('data-type', type);
-		tile.style.gridRowStart = y + 1;
-		tile.style.gridColumnStart = x + 1;
 		tile.style.backgroundColor = pastelColors[getRandomNum(pastelColors.length)-1]
-		this.gameBoard.appendChild(tile);
+
+		if (emptySpace) {
+			tile.style.gridRowStart = parseInt(y);
+			tile.style.gridColumnStart = parseInt(x);
+			this.gameBoard.replaceChild(tile, emptySpace);
+		} else {
+			tile.style.gridRowStart = parseInt(y) + 1;
+			tile.style.gridColumnStart = parseInt(x) + 1;
+			this.gameBoard.appendChild(tile);}
 	}
 
     removeTile(tile) {
