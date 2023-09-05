@@ -1,3 +1,9 @@
+:root {
+    --black-001: #000000;
+    --grey-001: #CCCCCC;
+    --white-001: #FFFFFF;
+  }
+
 .hidden {
     display: none;
 }

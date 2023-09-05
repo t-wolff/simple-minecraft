@@ -27,7 +27,7 @@ export class Game {
 		});
 
 		this.world.gameBoard.addEventListener('click', (event) => {
-			if (event.target) {
+			if (!event.target.classList.contains('game-board')) {
 				const condition = this.gameStage === 1 
 						? this.player.currentTool === event.target.dataset.type &&
 						  event.target.classList.contains('fade-tile')
@@ -63,7 +63,7 @@ export class Game {
 					setTimeout(() => {
 						this.world.removeTile(fadedTile);
 						resolve();
-					}, 2000);
+					}, 2);
 				});
 			}
 		}
@@ -71,7 +71,7 @@ export class Game {
 
 	updateGame2() {
         this.world.gameBoard.addEventListener('click', (event) => {
-			if (event.target) {
+			if (!event.target.classList.contains('game-board')) {
 				this.world.gameBoard.classList.remove(`cursor-${this.player.typeChosen}`);
 				if (this.player.inventory[this.player.typeChosen] > 0 && this.player.currentTool !== event.target.dataset.type) {
                     this.player.removeItem(this.player.typeChosen);

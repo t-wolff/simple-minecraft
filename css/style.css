@@ -1,13 +1,18 @@
 body {
-    border: 1rem solid black;
-    background-color: black;
+    border: 1rem solid var(--black-001);
+    background-color: var(--black-001);
+    font-weight: 800;
+}
+
+button{
+    font-weight: 800;
 }
 
 .overlay {
     height: 100vh;
     width: 100vw;
-    background: black;
-    color: white;
+    background: var(--black-001);
+    color: var(--white-001);
     text-align: center;
     box-sizing: border-box;
     padding: 10rem;
@@ -55,18 +60,16 @@ body {
     padding: 2rem;
     width: 20rem;
     border-radius: 0.8rem;
-    border: 0.4rem solid black;
+    border: 0.4rem solid var(--black-001);
     box-shadow: none;
     font-size: 2rem;
-    font-weight: 800;
     margin: 5rem;
 }
 
 .overlay button:hover {
-    background-color: black;
-    color: white;
-    border: 0.4rem solid white;
-    font-size: 2rem;
+    background-color: var(--black-001);
+    color: var(--white-001);
+    border: 0.4rem solid var(--white-001);
     font-size: 3rem;
     width: 28rem;
 }
@@ -91,14 +94,13 @@ ul {
 }
 
 .navbar button {
-    border: 0.3rem solid rgb(204, 204, 204);
+    border: 0.3rem solid var(--grey-001);
     border-radius: 0.8rem;
-    background: black;
-    color: rgb(255, 255, 255);
+    background: var(--black-001);
+    color: var(--white-001);
     width: 10rem;
     height: 4rem;
     padding: 1rem;
-    font-weight: 800;
 }
 
 .navbar .tool {
@@ -118,9 +120,8 @@ ul {
 }
 
 #navbar-btn-chosen {
-    background-color:rgb(204, 204, 204);
-    color: black;
-    
+    background-color:var(--grey-001);
+    color: var(--black-001);
 }
 
 .game-board {
@@ -132,24 +133,20 @@ ul {
     display: grid;
     grid-template-columns : repeat(17, 6rem);
     grid-template-rows: repeat(7, 6rem);
-    border: 0.3rem solid rgb(204, 204, 204);
+    border: 0.3rem solid var(--grey-001);
     border-radius: 0.4rem;
     padding: 1rem;
     padding-left: 1.6rem;
 }
 
-/* .tile {
-} */
-
 .empty-space {
-    background-color: rgb(0, 0, 0);
+    background-color: var(--black-001);
 }
 
 .game-board [data-type] {
     background-size: 60%;
     background-position-x: 50%;
     background-position-y: 50%;
-    border: 0.1rem solid black;
     background-repeat: no-repeat;
 }
 
@@ -176,14 +173,13 @@ ul {
     width: 6rem;
     height: 52rem;
     border-radius: 0.4rem;
-    background-color:rgb(204, 204, 204);
+    background-color:var(--grey-001);
 }
 
 .inventory h3 {
     text-align: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    font-weight: 900;
 }
 
 .inventory-tile {
@@ -193,7 +189,6 @@ ul {
     background-size: 60%;
     background-position-x: 50%;
     background-position-y: 50%;
-    border: 0.1rem solid black;
     background-repeat: no-repeat;
 }
 
