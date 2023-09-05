@@ -3,17 +3,30 @@ export class Ui {
 
     }
 
-    buildInventory() {
+    buildInventory(gameBoard) {
+        const navbar = document.querySelector('.navbar')
 		const inventoryBtn = document.querySelector('.inventory-btn');
 		const inventoryContainer = document.querySelector('.inventory');
+        
+        gameBoard.classList.add('gameboard-adjust');
+        navbar.classList.add('navbar-adjust')
 
-		inventoryContainer.style.display = 'inline';
+		inventoryContainer.classList.add('hidden');
 		inventoryBtn.textContent = `INVENTORY`;
-		inventoryBtn.addEventListener('mouseOver', () => {
-			inventoryContainer.classList.remove('hidden');
+
+		inventoryBtn.addEventListener('mouseover', () => {
+            if (!inventoryContainer.classList.contains('clicked')) {
+                inventoryContainer.classList.remove('hidden');
+            }
 		});
-		inventoryBtn.addEventListener('mouseOut', () => {
-			inventoryContainer.classList.add('hidden');
+		inventoryBtn.addEventListener('mouseout', () => {
+            if (!inventoryContainer.classList.contains('clicked')) {
+                inventoryContainer.classList.add('hidden');
+            }
+		});
+        inventoryBtn.addEventListener('click', () => {
+			inventoryContainer.classList.remove('hidden');
+            inventoryContainer.classList.toggle('clicked')
 		});
 	}
 
@@ -21,6 +34,7 @@ export class Ui {
         const inventoryCount = document.querySelector(`.inventory-count-${type}`);
         if( inventory && type && inventoryCount) {
             inventoryCount.textContent = `Blocks Remaining : ${inventory[type]}`
+            console.log( `inventory ${JSON.stringify(inventory)} ; type ${type} ; inventory[type] = ${inventory[type]}`);
         }
     }
 

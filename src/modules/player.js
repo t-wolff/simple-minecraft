@@ -1,7 +1,7 @@
 export class Player {
 	constructor() {
 		this.currentTool = null;
-		this.inventory = { circle: 2, square: 0, star: 0 };
+		this.inventory = { circle: 2, square: 2, star: 2 };
 		this.score = 1;
 		this.typeChosen = '';
 	}
@@ -26,12 +26,17 @@ export class Player {
 	showScore() {
 		const overlay = document.createElement('div');
 		const title = document.createElement('h1');
-		overlay.className = `overlay overlay-main`;
+        const smallText = document.createElement('h4');
 		const message = this.score < 30 ? `GET SOME PRACTICE.` : `WOW! GREAT JOB!`;
+
+		overlay.className = `overlay overlay-main`;
 		title.textContent = `${message} 
                             YOUR SCORE IS : ${this.score}`;
+        smallText.textContent =  `Click me. In the next page click on Inventory Button.`
+
 		document.body.appendChild(overlay);
 		overlay.appendChild(title);
+        overlay.appendChild(smallText);
 		overlay.addEventListener('click', () => {
             if (this.score !== 0 ) {
                 overlay.classList.add('hidden');

@@ -33,18 +33,19 @@ export class Game {
 						  event.target.classList.contains('fade-tile')
 						: this.player.currentTool === event.target.dataset.type;
 
-				if (condition) {
-					this.world.removeTile(event.target);
-					this.player.addItem(event.target.dataset.type);
-                    this.ui.updateInventory(this.player.inventory, this.player.typeChosen);
-                    this.ui.updateScore(this.player.getScore());
+					if (condition) {
+						this.world.removeTile(event.target);
+						this.player.addItem(event.target.dataset.type);
+						console.log(this.player.inventory);
+						this.ui.updateScore(this.player.getScore());
+						this.ui.updateInventory(this.player.inventory, this.player.typeChosen);
 					
 				}
 			}
 		});
 
-		const reset = document.querySelector('.reset-btn');
-		reset.addEventListener('click', () => this.resetGame());
+		const resetBtn = document.querySelector('.reset-btn');
+		resetBtn.addEventListener('click', () => this.resetGame());
 	}
 
 	startLevel2() {
