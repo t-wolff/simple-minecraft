@@ -53,7 +53,7 @@ export class Game {
                 }
             } else if (event.target) {
                 this.world.gameBoard.classList.remove(`cursor-${this.player.typeChosen}`)               
-                this.world.addTile('square', event.target.style.gridColumnStart, event.target.style.gridRowStart, event.target);
+                this.world.addTile(this.player.typeChosen, event.target.style.gridColumnStart, event.target.style.gridRowStart, event.target);
             }
         });
 
@@ -69,7 +69,7 @@ export class Game {
                     setTimeout(() => {
                         this.world.removeFadedTile(fadedTile);
                         resolve();
-                    }, 2000);
+                    }, 1);
                 });
             }
         }
