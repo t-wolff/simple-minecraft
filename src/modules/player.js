@@ -1,8 +1,8 @@
 export class Player {
 	constructor() {
 		this.currentTool = null;
-		this.inventory = { circle: 0, square: 0, star: 2 };
-		this.score = 0;
+		this.inventory = { circle: 2, square: 0, star: 0 };
+		this.score = 1;
 		this.typeChosen = '';
 	}
 
@@ -20,7 +20,6 @@ export class Player {
 
 	getScore() {
 		this.score = Object.values(this.inventory).reduce((total, curr) => total + curr, 0) || 0;
-		console.log(this.score);
 		return this.score;
 	}
 
@@ -34,21 +33,13 @@ export class Player {
 		document.body.appendChild(overlay);
 		overlay.appendChild(title);
 		overlay.addEventListener('click', () => {
-			overlay.classList.add('hidden');
+            if (this.score !== 0 ) {
+                overlay.classList.add('hidden');
+            } else {if (confirm(`NO SECOND ROUND FOR YOU - TRY AGAIN`)){
+                window.location.reload();}
+            }
 		});
 	}
 
-	buildInventory() {
-		const inventoryBtn = document.querySelector('.inventory-btn');
-		const inventoryContainer = document.querySelector('.inventory');
-
-		inventoryContainer.style.display = 'inline';
-		inventoryBtn.textContent = `INVENTORY`;
-		inventoryBtn.addEventListener('mouseOver', () => {
-			inventoryContainer.classList.remove('hidden');
-		});
-		inventoryBtn.addEventListener('mouseOut', () => {
-			inventoryContainer.classList.add('hidden');
-		});
-	}
+	
 }

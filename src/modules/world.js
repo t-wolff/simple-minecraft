@@ -58,9 +58,35 @@ export class World {
 		}
 	}
 
-	removeFadedTile(tile) {
-		// tile.classList.remove('tile');
-		this.removeTile(tile);
+	buildInventoryTiles(player) {
+		const inventoryContainer = document.querySelector('.inventory');
+		const blocks = [];
+
+		for (const property in player.inventory) {
+			if (player.inventory[property] > 0) {
+				const inventoryCount = document.createElement('div');
+                inventoryCount.classList.add(`inventory-count-${property}`);
+				inventoryCount.textContent = `Blocks Remaining : ${player.inventory[property]}`;
+
+				const block = document.createElement('div');
+				block.classList.add('inventory-tile');
+				block.setAttribute('data-type', property);
+				block.style.backgroundColor = pastelColors[getRandomNum(pastelColors.length) - 1];
+
+				inventoryContainer.appendChild(block);
+				inventoryContainer.appendChild(inventoryCount);
+
+				block.addEventListener('click', () => {
+					if (player.inventory[property] > 0) {
+						this.gameBoard.classList.remove(`cursor-${player.typeChosen}`);
+						this.gameBoard.classList.add(`cursor-${property}`);
+						player.typeChosen = property;
+					}
+				})
+			}
+		}
+
+		return blocks;
 	}
 }
 
