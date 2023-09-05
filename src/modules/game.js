@@ -90,13 +90,13 @@ export class Game {
 
 	}
 
-	// clearBoard() {
-	// 	console.log(this.world.gameBoard)
-	// 	const tiles = Array.from(this.world.gameBoard.children)
-	// 	tiles.forEach(tile => {
-	// 		this.world.removeTile(tile);
-	// 	})
-	// }
+	clearBoard() {
+		console.log(this.world.gameBoard)
+		const tiles = Array.from(this.world.gameBoard.children)
+		tiles.forEach(tile => {
+			this.world.removeTile(tile);
+		})
+	}
 
 	resetGame() {
 		//  const tiles = this.world.gameBoard.querySelectorAll('.tile');

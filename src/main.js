@@ -2,6 +2,7 @@ import { Game } from "./modules/game.js";
 const startBtn = document.querySelector('.start-game-btn');
 const overlay = document.querySelectorAll('.overlay');
 const nextBtn = document.querySelector('.reset-btn');
+let isSkipped = false;
 
   startBtn.addEventListener("click", () => {
     overlay.forEach((item, i) => {
@@ -16,16 +17,21 @@ const nextBtn = document.querySelector('.reset-btn');
 
   async function newGame() {
     const game = new Game();
+
     nextBtn.addEventListener("click", () => {
-      // game.clearBoard();
-			// game.startLevel2();
-			// game.updateGame2();
+      if (!isSkipped) {
+        isSkipped = true
+        game.clearBoard();
+        game.startLevel2();
+        game.updateGame2();
+      }
     });
 
     game.startLevel1();
     await game.updateGame();
 
-
-    game.startLevel2();
-    game.updateGame2();
+    if (!isSkipped) {
+      game.startLevel2();
+      game.updateGame2();
+    }
   }
