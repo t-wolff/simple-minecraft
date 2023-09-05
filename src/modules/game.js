@@ -64,7 +64,7 @@ export class Game {
 					setTimeout(() => {
 						this.world.removeTile(fadedTile);
 						resolve();
-					}, 2);
+					}, 2000);
 				});
 			}
 		}
