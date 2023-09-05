@@ -1,8 +1,8 @@
 export class Player {
 	constructor() {
 		this.currentTool = null;
-		this.inventory = { circle: 2, square: 2, star: 2 };
-		this.score = 1;
+		this.inventory = { circle: 0, square: 0, star: 0 };
+		this.score = 0;
 		this.typeChosen = '';
 	}
 
