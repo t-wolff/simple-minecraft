@@ -18,4 +18,5 @@ const overlay = document.querySelectorAll('.overlay');
     game.startLevel1();
     await game.updateGame();
     game.startLevel2();
+    game.updateGame2();
   }

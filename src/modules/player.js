@@ -1,10 +1,7 @@
-import { pastelColors } from '../models/constants.js';
-import { getRandomNum } from '../utils/utils.js';
-
 export class Player {
 	constructor() {
 		this.currentTool = null;
-		this.inventory = { circle: 2, square: 2, star: 2 };
+		this.inventory = { circle: 0, square: 0, star: 2 };
 		this.score = 0;
 		this.typeChosen = '';
 	}
@@ -41,7 +38,7 @@ export class Player {
 		});
 	}
 
-	buildInventory(gameBoard) {
+	buildInventory() {
 		const inventoryBtn = document.querySelector('.inventory-btn');
 		const inventoryContainer = document.querySelector('.inventory');
 
@@ -53,28 +50,5 @@ export class Player {
 		inventoryBtn.addEventListener('mouseOut', () => {
 			inventoryContainer.classList.add('hidden');
 		});
-
-		for (const property in this.inventory) {
-			const count = document.createElement('div');
-			const block = document.createElement('div');
-
-			block.classList.add('inventory-tile');
-			block.setAttribute('data-type', property);
-			block.setAttribute('draggable', 'true');
-
-			block.style.backgroundColor = pastelColors[getRandomNum(pastelColors.length) - 1];
-
-			count.textContent = this.inventory[property];
-			inventoryContainer.appendChild(block);
-			inventoryContainer.appendChild(count);
-
-			block.addEventListener('click', () => {
-				if (this.inventory[property] > 0) {
-					gameBoard.classList.remove(`cursor-${this.typeChosen}`);
-					gameBoard.classList.add(`cursor-${property}`);
-					this.typeChosen = property;
-				}
-			});
-		}
 	}
 }

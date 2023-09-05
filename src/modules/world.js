@@ -1,5 +1,5 @@
 import { getRandomNum } from '../utils/utils.js';
-import {pastelColors} from "../models/constants.js";
+import { pastelColors } from '../models/constants.js';
 
 export class World {
 	constructor() {
@@ -19,7 +19,7 @@ export class World {
 		const tile = document.createElement('div');
 		tile.className = `tile`;
 		tile.setAttribute('data-type', type);
-		tile.style.backgroundColor = pastelColors[getRandomNum(pastelColors.length)-1]
+		tile.style.backgroundColor = pastelColors[getRandomNum(pastelColors.length) - 1];
 
 		if (emptySpace) {
 			tile.style.gridRowStart = parseInt(y);
@@ -28,28 +28,28 @@ export class World {
 		} else {
 			tile.style.gridRowStart = parseInt(y) + 1;
 			tile.style.gridColumnStart = parseInt(x) + 1;
-			this.gameBoard.appendChild(tile);}
+			this.gameBoard.appendChild(tile);
+		}
 	}
 
-    removeTile(tile) {
-        const emptySpace = document.createElement('div');
-        emptySpace.className = 'empty-space';
-    
-        if (tile.parentNode === this.gameBoard) {
-            const row = parseInt(tile.style.gridRowStart);
-            const col = parseInt(tile.style.gridColumnStart);
-            emptySpace.style.gridRowStart = row;
-            emptySpace.style.gridColumnStart = col;
-    
-            this.gameBoard.replaceChild(emptySpace, tile);
-        }
-    }
-    
+	removeTile(tile) {
+		const emptySpace = document.createElement('div');
+		emptySpace.className = 'empty-space';
+
+		if (tile.parentNode === this.gameBoard) {
+			const row = parseInt(tile.style.gridRowStart);
+			const col = parseInt(tile.style.gridColumnStart);
+			emptySpace.style.gridRowStart = row;
+			emptySpace.style.gridColumnStart = col;
+
+			this.gameBoard.replaceChild(emptySpace, tile);
+		}
+	}
 
 	fadeTile() {
 		const tilesArr = Array.from(this.gameBoard.querySelectorAll('.tile'));
 		if (tilesArr.length > 0) {
-			const randomTile = tilesArr[getRandomNum(tilesArr.length)-1];
+			const randomTile = tilesArr[getRandomNum(tilesArr.length) - 1];
 			randomTile.classList.add('fade-tile');
 			randomTile.style.color = 'grey';
 			return randomTile;
@@ -58,10 +58,10 @@ export class World {
 		}
 	}
 
-    removeFadedTile(tile) {
-        // tile.classList.remove('tile');
-        this.removeTile(tile);
-    }
+	removeFadedTile(tile) {
+		// tile.classList.remove('tile');
+		this.removeTile(tile);
+	}
 }
 
 function generateType(y) {
