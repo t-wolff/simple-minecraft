@@ -13,13 +13,13 @@
 
 ## About
 
-Welcome to the Minecraft Functionality Implementation Assignment! This project is a game developed as part of a course assignment. The objective of this assignment was to implement Minecraft-like functionalities using vanilla JavaScript, HTML, and CSS. The game consists of two main steps, each with its unique challenges and goals.
+Welcome to the Minecraft Functionality Implementation Assignment! This project is a game developed as part of a course assignment. The objective of this assignment was to implement Minecraft-like functionalities using vanilla JavaScript, HTML, CSS and our imagination. The game consists of two levels, each with its own unique challenges and goals.
 
 ### Overview
 
-In the first step of the game, you are presented with a screen featuring three different types of blocks: square, star, and circle. These blocks initially appear in vibrant colors and gradually turn grey, one by one, for a duration of 2 seconds before disappearing. Your mission is to press the grey blocks in the correct order to add them to your inventory and earn points before they vanish. Before you can press a grey block, you must press the corresponding button that matches the block type (e.g., if the block has a star on it, you must press the star button before selecting the grey star block).
+In the first level of the game, you are presented with a screen featuring three different types of blocks: square, star, and circle. These blocks initially appear in vibrant colors and gradually turn grey, one by one, for a duration of 2 seconds before disappearing. Your mission is to press the grey blocks before they vanish, thus adding them to your inventory and collecting points. Before you can press a grey block, you must press the corresponding button that matches the block type (e.g., if the block has a star on it, you must press the star button before selecting the grey star block).
 
-Once you have successfully cleared the board or decided to advance, you will transition to the second step of the game. In this step, you have access to the blocks you collected in the previous step, and you can use them to build pictures or structures according to your creativity and imagination.
+Once you have successfully cleared the board or decided to advance, you will transition to the second level of the game. In this step, you have access to the blocks you collected in the previous step, and you can use them to build pictures or structures according to your creativity and imagination. The goal is to let you creativity shine and then share with friends and family.
 
 ---
 
