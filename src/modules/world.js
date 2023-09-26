@@ -78,9 +78,9 @@ export class World {
 
 				block.addEventListener('click', () => {
 					if (player.inventory[property] > 0) {
-						this.gameBoard.classList.remove(`cursor-${player.typeChosen}`);
+						this.gameBoard.classList.remove(`cursor-${player.currentAddTool}`);
 						this.gameBoard.classList.add(`cursor-${property}`);
-						player.typeChosen = property;
+						player.selectAddTool(property);
 					}
 				});
 			}

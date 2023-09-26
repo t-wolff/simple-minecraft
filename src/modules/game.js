@@ -6,7 +6,7 @@ export class Game {
 	constructor() {
 		this.world = new World();
 		this.player = new Player();
-        this.ui = new Ui();
+		this.ui = new Ui();
 		this.tools = Array.from(document.querySelectorAll('.tool'));
 		this.gameStage = 1;
 	}
@@ -35,12 +35,14 @@ export class Game {
 						? currentTool === tileType && event.target.classList.contains('fade-tile')
 						: currentTool === tileType;
 				console.log(currentTool);
-					if (condition) {
-						this.world.removeTile(event.target);
-						this.player.addItem(tileType);
-						this.ui.updateScore(this.player.getScore());
-						this.ui.updateInventory(this.player.inventory, this.player.typeChosen);
-					
+				if (condition) {
+					this.world.removeTile(event.target);
+					this.player.addItem(tileType);
+					this.ui.updateScore(this.player.getScore());
+					this.ui.updateInventory(
+						this.player.inventory,
+						this.player.currentAddTool || this.player.currentTool
+					);
 				}
 			}
 		});
@@ -52,7 +54,7 @@ export class Game {
 	startLevel2() {
 		this.player.showScore();
 		this.ui.buildInventoryBtn(this.world.gameBoard);
-        this.world.buildInventoryTiles(this.player);
+		this.world.buildInventoryTiles(this.player);
 	}
 
 	async updateLevel1() {
@@ -72,20 +74,20 @@ export class Game {
 	}
 
 	updateLevel2() {
-        this.world.gameBoard.addEventListener('click', (event) => {
+		this.world.gameBoard.addEventListener('click', (event) => {
 			if (
 				!event.target.classList.contains('game-board') &&
 				event.target.classList.contains('empty-space')
 			) {
-				this.world.gameBoard.classList.remove(`cursor-${this.player.typeChosen}`);
+				this.world.gameBoard.classList.remove(`cursor-${this.player.currentAddTool}`);
 				if (
-					this.player.inventory[this.player.typeChosen] > 0 &&
+					this.player.inventory[this.player.currentAddTool] > 0 &&
 					this.player.currentTool !== event.target.dataset.type
 				) {
-					this.player.removeItem(this.player.typeChosen);
-					this.ui.updateInventory(this.player.inventory, this.player.typeChosen);
+					this.player.removeItem(this.player.currentAddTool);
+					this.ui.updateInventory(this.player.inventory, this.player.currentAddTool);
 					this.world.addTile(
-						this.player.typeChosen,
+						this.player.currentAddTool,
 						event.target.style.gridColumnStart,
 						event.target.style.gridRowStart,
 						event.target
@@ -93,14 +95,13 @@ export class Game {
 				}
 			}
 		});
-
 	}
 
 	clearBoard() {
-		const tiles = Array.from(this.world.gameBoard.children)
-		tiles.forEach(tile => {
+		const tiles = Array.from(this.world.gameBoard.children);
+		tiles.forEach((tile) => {
 			this.world.removeTile(tile);
-		})
+		});
 	}
 
 	// resetGame() {
