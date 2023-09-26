@@ -15,16 +15,16 @@ export class World {
 		}
 	}
 
-	addTile(type, x, y, emptySpace) {
+	addTile(type, x, y, tileToReplace) {
 		const tile = document.createElement('div');
 		tile.className = `tile`;
 		tile.setAttribute('data-type', type);
 		tile.style.backgroundColor = pastelColors[getRandomNum(pastelColors.length) - 1];
 
-		if (emptySpace) {
+		if (tileToReplace) {
 			tile.style.gridRowStart = parseInt(y);
 			tile.style.gridColumnStart = parseInt(x);
-			this.gameBoard.replaceChild(tile, emptySpace);
+			this.gameBoard.replaceChild(tile, tileToReplace);
 		} else {
 			tile.style.gridRowStart = parseInt(y) + 1;
 			tile.style.gridColumnStart = parseInt(x) + 1;
@@ -65,7 +65,7 @@ export class World {
 		for (const property in player.inventory) {
 			if (player.inventory[property] > 0) {
 				const inventoryCount = document.createElement('div');
-                inventoryCount.classList.add(`inventory-count-${property}`);
+				inventoryCount.classList.add(`inventory-count-${property}`);
 				inventoryCount.textContent = `Blocks Remaining : ${player.inventory[property]}`;
 
 				const block = document.createElement('div');
@@ -82,7 +82,7 @@ export class World {
 						this.gameBoard.classList.add(`cursor-${property}`);
 						player.typeChosen = property;
 					}
-				})
+				});
 			}
 		}
 

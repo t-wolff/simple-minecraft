@@ -113,7 +113,8 @@ ul {
     font-size: 1.4rem;
 }
 
-.navbar .tool:hover {
+.navbar .tool:hover,
+#navbar-btn-chosen {
     margin-top: -1rem;
     width: 16rem;
     height: 8rem;
@@ -121,10 +122,6 @@ ul {
     margin-right: -3.4rem;
 }
 
-#navbar-btn-chosen {
-    background-color: var(--grey-001);
-    color: var(--black-001);
-}
 
 .game-board {
     position: absolute;

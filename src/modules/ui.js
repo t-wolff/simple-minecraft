@@ -3,7 +3,7 @@ export class Ui {
 
     }
 
-    buildInventory(gameBoard) {
+    buildInventoryBtn(gameBoard) {
         const navbar = document.querySelector('.navbar')
 		const inventoryBtn = document.querySelector('.inventory-btn');
 		const inventoryContainer = document.querySelector('.inventory');

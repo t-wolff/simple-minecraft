@@ -27,16 +27,17 @@ export class Game {
 		});
 
 		this.world.gameBoard.addEventListener('click', (event) => {
+			const currentTool = this.player.currentTool;
+			const tileType = event.target.dataset.type;
 			if (!event.target.classList.contains('game-board')) {
-				const condition = this.gameStage === 1 
-						? this.player.currentTool === event.target.dataset.type &&
-						  event.target.classList.contains('fade-tile')
-						: this.player.currentTool === event.target.dataset.type;
-
+				const condition =
+					this.gameStage === 1
+						? currentTool === tileType && event.target.classList.contains('fade-tile')
+						: currentTool === tileType;
+				console.log(currentTool);
 					if (condition) {
 						this.world.removeTile(event.target);
-						this.player.addItem(event.target.dataset.type);
-						console.log(this.player.inventory);
+						this.player.addItem(tileType);
 						this.ui.updateScore(this.player.getScore());
 						this.ui.updateInventory(this.player.inventory, this.player.typeChosen);
 					
@@ -44,17 +45,17 @@ export class Game {
 			}
 		});
 
-		const resetBtn = document.querySelector('.reset-btn');
-		resetBtn.addEventListener('click', () => this.resetGame());
+		// const resetBtn = document.querySelector('.reset-btn');
+		// resetBtn.addEventListener('click', () => this.resetGame());
 	}
 
 	startLevel2() {
 		this.player.showScore();
-		this.ui.buildInventory(this.world.gameBoard);
+		this.ui.buildInventoryBtn(this.world.gameBoard);
         this.world.buildInventoryTiles(this.player);
 	}
 
-	async updateGame() {
+	async updateLevel1() {
 		while (this.gameStage === 1) {
 			const fadedTile = this.world.fadeTile();
 			if (!fadedTile) {
@@ -70,42 +71,46 @@ export class Game {
 		}
 	}
 
-	updateGame2() {
+	updateLevel2() {
         this.world.gameBoard.addEventListener('click', (event) => {
-			if (!event.target.classList.contains('game-board')) {
+			if (
+				!event.target.classList.contains('game-board') &&
+				event.target.classList.contains('empty-space')
+			) {
 				this.world.gameBoard.classList.remove(`cursor-${this.player.typeChosen}`);
-				if (this.player.inventory[this.player.typeChosen] > 0 && this.player.currentTool !== event.target.dataset.type) {
-                    this.player.removeItem(this.player.typeChosen);
-                    this.ui.updateInventory(this.player.inventory, this.player.typeChosen)
-
+				if (
+					this.player.inventory[this.player.typeChosen] > 0 &&
+					this.player.currentTool !== event.target.dataset.type
+				) {
+					this.player.removeItem(this.player.typeChosen);
+					this.ui.updateInventory(this.player.inventory, this.player.typeChosen);
 					this.world.addTile(
-                        this.player.typeChosen,
+						this.player.typeChosen,
 						event.target.style.gridColumnStart,
 						event.target.style.gridRowStart,
 						event.target
-                        );
-                    }
+					);
+				}
 			}
 		});
 
 	}
 
 	clearBoard() {
-		console.log(this.world.gameBoard)
 		const tiles = Array.from(this.world.gameBoard.children)
 		tiles.forEach(tile => {
 			this.world.removeTile(tile);
 		})
 	}
 
-	resetGame() {
-		//  const tiles = this.world.gameBoard.querySelectorAll('.tile');
-		// tiles.forEach(tile => this.world.gameBoard.remove(tile));
-		// for (const key in this.player.inventory) {
-		//         this.player.inventory[key] = 0;
-		// }
-		// const game = new Game();
-		// game.startGame();
-		// game.updateGame();
-	}
+	// resetGame() {
+	// 	 const tiles = this.world.gameBoard.querySelectorAll('.tile');
+	// 	tiles.forEach(tile => this.world.gameBoard.remove(tile));
+	// 	for (const key in this.player.inventory) {
+	// 	        this.player.inventory[key] = 0;
+	// 	}
+	// 	const game = new Game();
+	// 	game.startGame();
+	// 	game.updateLevel1();
+	// }
 }

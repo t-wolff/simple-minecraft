@@ -23,15 +23,15 @@ let isSkipped = false;
         isSkipped = true
         game.clearBoard();
         game.startLevel2();
-        game.updateGame2();
+        game.updateLevel2();
       }
     });
 
     game.startLevel1();
-    await game.updateGame();
+    await game.updateLevel1();
 
     if (!isSkipped) {
       game.startLevel2();
-      game.updateGame2();
+      game.updateLevel2();
     }
   }
