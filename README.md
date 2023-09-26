@@ -29,18 +29,21 @@ To play the Minecraft Functionality Implementation Assignment game, follow these
 
 ### Step 1: Block Collection
 
-1. Launch the game by opening the HTML file in a web browser.
+1. Launch the game by opening the HTML file in a web browser or accessing this link : https://joyful-lily-90f9cd.netlify.app/
+![Alt text](image-1.png)
 2. You will be presented with a screen featuring three types of blocks: square, star, and circle.
 3. Initially, the blocks will appear in colorful states.
 4. Observe as the blocks gradually turn grey, one by one, and then disappear.
+![Alt text](image-2.png)
 5. To collect a grey block and earn points, press the grey block after pressing the corresponding button that matches its type. For example, press the star button before selecting a grey star block.
-6. Continue to press grey blocks in the correct order until you have cleared the board or decide to proceed.
+6. Continue to press grey blocks in the correct order until you have cleared the board or decide to proceed, to proceed press the "next" button. You will not be permitted to proceed if you have not collected at least one block.
 
 ### Step 2: Creative Building
 
 1. After successfully collecting blocks in Step 1 or choosing to proceed, you will advance to the building phase.
 2. In this phase, you will have access to the blocks you collected in the previous step.
 3. Use your creativity and imagination to build pictures or structures using the available blocks.
+![Alt text](image-3.png)
 4. Experiment with different combinations and arrangements to create unique designs.
 
 Enjoy the game and have fun showcasing your Minecraft-inspired skills!
