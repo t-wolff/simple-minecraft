@@ -104,6 +104,13 @@ export class Game {
 		});
 	}
 
+	endGame() {
+		const gameScreen = document.querySelector(".game-screen");
+		const endGameScreen = document.querySelector(".overlay-endgame")
+		gameScreen.classList.add('hidden');
+		endGameScreen.classList.remove('hidden');
+	}
+
 	// resetGame() {
 	// 	 const tiles = this.world.gameBoard.querySelectorAll('.tile');
 	// 	tiles.forEach(tile => this.world.gameBoard.remove(tile));
